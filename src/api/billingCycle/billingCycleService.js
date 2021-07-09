@@ -5,4 +5,14 @@ BillingCycle.methods(['get', 'post', 'put', 'delete'])
 //runValidators: para as validações funcionarem
 BillingCycle.updateOptions({new: true, runValidators: true})
 
+BillingCycle.route('count', (req, res, next) => {
+    BillingCycle.count((error, value) => {
+        if(error) {
+            res.status(500).json({erros: [error]})
+        }else{
+            res.json({value})
+        }
+    })
+})
+
 module.exports = BillingCycle
