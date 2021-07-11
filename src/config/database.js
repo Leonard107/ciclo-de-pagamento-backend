@@ -1,7 +1,8 @@
 const mongoose = require('mongoose')
 //Pegando a api de promise do node e atribuindo para a api de promise do mongoose
 mongoose.Promise = global.Promise
-module.exports = mongoose.connect('mongodb://localhost/mymoney')
+module.exports = mongoose.connect('mongodb://localhost/mymoney', { useNewUrlParser: true})
+
 
 mongoose.Error.messages.general.required = "O atributo '{PATH} é obrigatório."
 mongoose.Error.messages.Number.min = 
